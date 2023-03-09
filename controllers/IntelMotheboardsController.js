@@ -105,8 +105,8 @@ class IntelMotheboardsController{
   }
 
   async compatiblescpu(req, res){
-    var id_motheboard = req.params.id;
-    var compatiblesCPU = await IntelMotheboardsModels.isCompatibleCpuIntel(id_motheboard);
+    var id_cpu = req.params.id;
+    var compatiblesCPU = await IntelMotheboardsModels.isCompatibleCpuIntel(id_cpu);
     res.json(compatiblesCPU);
   };
 

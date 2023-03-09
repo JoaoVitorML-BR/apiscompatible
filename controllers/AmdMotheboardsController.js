@@ -106,8 +106,8 @@ class MotheboardController{
 
 
   async compatiblescpu(req, res){
-    var id_motheboard = req.params.id;
-    var compatiblesCPU = await MotheboardsModels.isCompatibleCpuAMD(id_motheboard);
+    var id_CPU = req.params.id;
+    var compatiblesCPU = await MotheboardsModels.isCompatibleCpuAMD(id_CPU);
     res.json(compatiblesCPU);
     console.log(compatiblesCPU);
   };

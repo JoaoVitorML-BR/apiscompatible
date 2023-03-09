@@ -72,13 +72,13 @@ router.put('/fonte', FonteController.edit);
 // router.delete('/fonte/:id', FonteController.remove);
 
 // SEARCHING CPUS COMPATIBLES WITH MOTHEBOARD_ID / NAME
-router.get('/cpuscompatibles/AMD/:id', AmdMotheboardController.compatiblescpu);
+router.get('/motheboardscompatibles/AMD/:id', AmdMotheboardController.compatiblescpu);
 router.get('/memoryramcompatibles/AMD/:id', AmdMotheboardController.compatiblesmemoryram);
 router.get('/ssdcompatibles/AMD/:id', SSDController.compatiblesSSD);
 router.get('/fontecompatibles/AMD/:id', FonteController.compatiblesFonte);
 router.get('/gpucompatibles/AMD/:id_cpu', GPUController.compatiblesGPUAmd);
 
-router.get('/cpuscompatibles/INTEL/:id', IntelMotheboardsController.compatiblescpu);
+router.get('/motheboardscompatibles/INTEL/:id', IntelMotheboardsController.compatiblescpu);
 router.get('/memoryramcompatibles/INTEL/:id', IntelMotheboardsController.compatiblesmemoryram);
 router.get('/ssdcompatibles/INTEL/:id', SSDController.compatiblesSSDIntel);
 router.get('/gpucompatibles/INTEL/:id_cpu', GPUController.compatiblesGPUIntel);

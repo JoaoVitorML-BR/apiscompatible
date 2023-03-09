@@ -124,17 +124,17 @@ class IntelMotheboardsModels{
 
   async isCompatibleCpuIntel(id){
     try{
-     var cpuscompatibles = await knex.select().table('intelcpus_motheboard_memoryram').where({intelmotheboard_id: id}).innerJoin('intelmotheboards', 'intelmotheboards.id', 'intelcpus_motheboard_memoryram.intelmotheboard_id');
+     var motheboardscompatibles = await knex.select().table('intelcpus_motheboard_memoryram').where({intelcpu_id: id}).innerJoin('intelmotheboards', 'intelmotheboards.id', 'intelcpus_motheboard_memoryram.intelmotheboard_id');
 
-     var cpuscompatiblesFilter = new Map();
+     var motheboardscompatiblesFilter = new Map();
 
-     cpuscompatibles.forEach(namecpu => {
-      if(!cpuscompatiblesFilter.has(namecpu.cpu_name)){
-        cpuscompatiblesFilter.set(namecpu.cpu_name, namecpu)
+     motheboardscompatibles.forEach(namemotheboard => {
+      if(!motheboardscompatiblesFilter.has(namemotheboard.motheboard)){
+        motheboardscompatiblesFilter.set(namemotheboard.motheboard, namemotheboard)
       };
       });
 
-      return [...cpuscompatiblesFilter.values()];
+      return [...motheboardscompatiblesFilter.values()];
     }catch(err){
       console.log('Deu merda...', err);
       return {status: false, err: err};

@@ -25,6 +25,11 @@ exports.ProcessingVideo = (req, res) => {
   // Enviar os dados de saída do processo do FFMPEG para o cliente
   ffmpegProcess.stdout.pipe(res);
 
+  ffmpegProcess.stderr.on('data', (data) => {
+    console.error(`FFMPEG error: ${data}`);
+  });
+  
+
   // Gerenciar a finalização do processo de streaming
   req.on("close", () => {
     ffmpegProcess.stdout.destroy();
